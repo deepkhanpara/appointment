@@ -44,9 +44,9 @@ public class AppointmentService {
         Doctor doctor = doctorRepository.findById(appointment.getDoctor().getId()).get();
         if (appointment.getAppointmentDateTime().isAfter(doctor.getAvailabilityFrom())
                 && (appointment.getAppointmentDateTime().isBefore(doctor.getAvailabilityTo()))) {
-            System.out.println("Doctor is not available on selected date and time");
             return true;
         }
+        System.out.println("Doctor is not available on selected date and time");
         return false;
     }
 }
